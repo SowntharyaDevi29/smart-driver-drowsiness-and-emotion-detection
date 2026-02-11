@@ -1,0 +1,8 @@
+<body style="background:#121212; color:white; text-align:center; font-family:sans-serif;">
+    <h1 style="color:#00ff00;">🔴 LIVE MONITORING</h1>
+    <div style="position:relative; display:inline-block;">
+        <img src="{{ url_for('video_feed', source_type='live', filename='none') }}" style="border:4px solid #333; width:800px;">
+        <p style="color:red;">Keep eyes closed for 3 seconds for Alert!</p>
+    </div>
+    <br><br><a href="/" style="color:white; background:#444; padding:10px; border-radius:5px; text-decoration:none;">⬅ BACK TO MENU</a>
+</body>

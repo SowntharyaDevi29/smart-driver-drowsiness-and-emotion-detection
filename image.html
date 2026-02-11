@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis - Driver Monitoring</title>
+    <style>
+        body {
+            background: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        h1 { color: #00ff00; }
+        
+        .upload-section {
+            background: #1f1f1f;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            border: 2px dashed #00ff00;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            color: #ccc;
+        }
+
+        .btn-analyze {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-analyze:hover {
+            background: #00cc00;
+            transform: scale(1.05);
+        }
+
+        .result-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .result-box {
+            background: #1f1f1f;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .result-box img {
+            max-width: 500px;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid #444;
+        }
+
+        .label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #00ff00;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #888;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>📸 Image Landmark Analysis</h1>
+        <p>Upload a driver's photo to detect landmarks and drowsiness status.</p>
+    </div>
+
+    <div class="upload-section">
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <br><br>
+            <button type="submit" class="btn-analyze">ANALYZE IMAGE</button>
+        </form>
+    </div>
+
+    {% if result_img %}
+    <div class="result-container">
+        <div class="result-box">
+            <img src="{{ result_img }}" alt="Analyzed Result">
+            <div class="label">AI ANALYSIS RESULT</div>
+            <p style="font-size: 0.9em; color: #aaa;">(Landmarks and Status displayed above)</p>
+        </div>
+    </div>
+    {% endif %}
+
+    <br>
+    <a href="/" class="back-link">⬅ Back to Main Menu</a>
+
+</body>
+</html>
